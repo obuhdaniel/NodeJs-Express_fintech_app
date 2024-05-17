@@ -1,0 +1,258 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: rgb(3, 57, 3);
+    color: white;
+    height: 100vh;
+    padding: 10px;
+    box-sizing: border-box;
+    position: fixed;
+}
+
+.sidebar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logotxt{
+    color: white;
+}
+
+.sidebar .nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar .nav ul li {
+    margin-bottom: 20px;
+}
+
+.sidebar .nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    padding: 0.8rem;
+}
+
+.sidebar .nav ul li.active a,
+.sidebar .nav ul li a:hover{
+    color: rgb(3, 57, 3);
+    background-color: white;
+    transition: 3ms ease-in all;
+    border-radius: 3rem;
+}
+
+
+
+
+
+
+
+.sidebar .nav ul li a i {
+    margin-right: 10px;
+}
+
+.main-content {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: white;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.dashboard-section {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+}
+
+h2 {
+    color: #007bff;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+.profile-info p {
+    margin: 5px 0;
+}
+
+/* Add these styles to your existing CSS */
+
+/* Card styles */
+.cards-container {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    text-align: center;
+}
+
+.card h3 {
+    margin: 0 0 10px 0;
+    color: #007bff;
+}
+
+.card p{
+    font-weight: 800;
+    font-size: 20px;
+}
+
+/* Chart container */
+.chart-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.user-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .user-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px; /* Adjust padding as needed */
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .user-info {
+    flex: 1; /* Allow user info to expand */
+  }
+  
+  .user-name,
+  .user-email,
+  .user-account-number,
+  .user-account-type {
+    margin-right: 20px; /* Adjust spacing between elements */
+  }
+  
+  .delete-btn {
+    background-color: #e74c3c; /* Adjust background color for delete button */
+    color: white;
+    padding: 5px 10px; /* Adjust padding as needed */
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .delete-btn:hover {
+    background-color: #c0392b; /* Adjust hover color for delete button */
+  }
+  
+
+
+
+
+
+
+
+@media (max-width: 500px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    .sidebar .nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .main-content {
+        margin-left: 0;
+    }
+    .container{
+        flex-direction: column;
+    }
+    .sidebar .nav ul {
+        font-size: 5px;
+        overflow: scroll;
+    }
+    .main-content {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    }
+    .cards-container{
+        flex-direction: column;
+    }
+}

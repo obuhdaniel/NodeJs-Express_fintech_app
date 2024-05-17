@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SabiPay|| ashboard</title>
+    <link rel="stylesheet" href="/stylesheets/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <h2 class="logotxt">SabiPay</h2>
+            </div>
+            <nav class="nav">
+                <ul>
+                  <li><a href="/dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                  <li><a href="/services/send"><i class="fas fa-paper-plane"></i> Transaction</a></li>
+                  <li><a href="/services/history"><i class="fa-solid fa-chart-simple"></i> Analytics</a></li>
+                  <li><a href="/services/pay-bills"><i class="fa-solid fa-money-bills"></i>Pay Bills</a></li>
+                  <li><a href="/services/loans"><i class="fa-solid fa-landmark"></i> Loans</a></li>
+                  <li><a href="/services/remittance"><i class="fa-solid fa-globe"></i> Remittances</a></li>
+                  <li><a href="/services/educate"><i class="fas fa-user"></i> Finacial Education</a></li>
+                  <li><a href="/services/help"><i class="fa-solid fa-headset"></i>Customer Support</a></li>
+                  <li><a href="/services/settings"><i class="fa-solid fa-gear"></i> Settings</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+          <header>
+              <div class="header-content">
+                  <h1>Dashboard</h1>
+              </div>
+          </header>
+
+          <section id="overview" class="dashboard-section">
+              <h2>Account Overview</h2>
+              <div class="cards-container">
+      
+            <div class="card">
+                <h3>Available Balance</h3>
+                <p>₦<%= account.balance %></p>
+            </div>
+
+
+                  <div class="card">
+                      <h3>Total Credits</h3>
+                      <p style="color: rgb(31, 132, 122);">₦<%= account.creditBalance %></p>
+                  </div>
+                  <div class="card">
+                      <h3>Total Debits</h3>
+                      <p style="color: rgb(239, 103, 103);">₦<%= account.debitBalance %></p>
+                  </div>
+              </div>
+
+              <div class="chart-container">
+                  <h3>Payment History (Last 12 Months)</h3>
+                  <canvas id="paymentHistoryChart"></canvas>
+              </div>
+          </section>
+      </main>
+  </div>
+
+  <script>
+      // Mock data for the chart
+      const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      const credits = [5000, 4000, 3000, 7000, 8000, 3000, 6000, 5000, 4000, 6000, 7000, 8000];
+      const debits = [2000, 1000, 3000, 4000, 2000, 1000, 3000, 2000, 3000, 4000, 2000, 3000];
+
+      const ctx = document.getElementById('paymentHistoryChart').getContext('2d');
+      const paymentHistoryChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+              labels: months,
+              datasets: [
+                  {
+                      label: 'Credits',
+                      data: credits,
+                      borderColor: 'rgba(75, 192, 192, 1)',
+                      backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                      fill: true,
+                  },
+                  {
+                      label: 'Debits',
+                      data: debits,
+                      borderColor: 'rgba(255, 99, 132, 1)',
+                      backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                      fill: true,
+                  }
+              ]
+          },
+          options: {
+              responsive: true,
+              scales: {
+                  y: {
+                      beginAtZero: true
+                  }
+              }
+          }
+      });
+  </script>
+
+    <script>
+      // Get all nav links
+      const navLinks = document.querySelectorAll('.sidebar .nav ul li a');
+      
+      // Get current URL path
+      const currentPath = window.location.pathname;
+      
+      // Loop through nav links and add active class to the current link
+      navLinks.forEach(link => {
+          if(link.getAttribute('href') === currentPath) {
+              link.parentElement.classList.add('active');
+          }
+      });
+  </script>
+  
+</body>
+</html>
+
+ 
+
+
